@@ -1,6 +1,6 @@
 {
   "name": "gulp-map",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "(A)synchronous mapping and filtering of object streams",
   "repository": "git://github.com/0x01/gulp-map.git",
   "homepage": "http://github.com/0x01/gulp-map",
