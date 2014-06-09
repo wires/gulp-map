@@ -16,7 +16,7 @@ module.exports = function(fn)
 
 		// filter if nothing is returned
 		if(!file_)
-			return;
+			return done();
 
 		if(isPromise(file_))
 		{
