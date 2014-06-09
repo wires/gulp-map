@@ -23,9 +23,15 @@ module.exports = function(fn)
 			promises = (promises || []);
 			promises.push(
 				// wait for completion and emit
-				file_.then(function(f){
-					this.push(f);
-				}.bind(this))
+				file_
+					.then(function(f){
+						this.push(f);
+					}.bind(this))
+					.fail(function(err){
+						// best I can think of at the moment
+						// probably need domains to propagate gutil.PluginError
+						console.error(err);
+					})
 			);
 		}
 		// it was a synchronous call
@@ -38,7 +44,7 @@ module.exports = function(fn)
 	var handle_end = function(done)
 	{
 		if(promises)
-			Q.all(promises).then(function(){
+			Q.all(promises).fin(function(){
 				done();
 			});
 		else
