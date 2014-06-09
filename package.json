@@ -1,0 +1,24 @@
+{
+  "name": "gulp-map",
+  "version": "0.0.1",
+  "description": "(A)synchronous mapping and filtering of object streams",
+  "repository": "git://github.com/0x01/gulp-map.git",
+  "homepage": "http://github.com/0x01/gulp-map",
+  "main": "gulp-map.js",
+  "dependencies": {
+    "is-promise": "^1.0.1",
+    "kew": "^0.4.0",
+    "through2": "^0.5.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.7.0",
+    "gulp-debug": "^0.3.0",
+    "gulp-util": "^2.2.16",
+    "kew": "^0.4.0"
+  },
+  "keywords": [
+    "gulpplugin", "gulpfriendly"
+  ],
+  "author": "Jelle 'wires' Herold <jelle@defekt.nl> (http://defekt.nl)",
+  "license": "MIT"
+}
