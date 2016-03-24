@@ -1,23 +1,28 @@
 
 # Better mapping.
 
+	npm install --save gulp-map
+
 Works with 
 
 ```js
-$ = require('gulp-load-plugins');
-// $.map(fn)
+var map = require('gulp-map');
 ```
 
 When returning a promise, it is mapped asynchronously (in parallel):
 
 ```js
 var Q = require('kew');
-// ...
-.pipe($.map(function(file){
-	return Q.delay(500).then(function(){
-		file.tags = (file.tags || []).push('slow');
-		return file;
-	});
+
+// wait 500 ms and add a 'slow' tag to the file
+.pipe(map(function (file) {
+	return Q
+		.delay(500)
+		.then(function () {
+			file.tags = (file.tags || []).push('slow')
+			return file
+		})
+	})
 }))
 ```
 
@@ -27,9 +32,9 @@ When you return `undefined` from your promise or regular function, the file is
 filtered from the stream.
 
 ```js
-.pipe($.map(function(file){
-	if(file.path.match(/gulpfile\.js/))
-		return file;
+.pipe(map(function (file) {
+	if (file.path.match(/gulpfile\.js/))
+		return file
 	// other files not emitted
 }))
 ```
